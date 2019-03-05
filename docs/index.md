@@ -33,7 +33,7 @@ See the [releases](reference/latest.md) page for the latest info on ROCK 2.3.
 
 [Install](install/requirements.md) - requirements / install media / installation
 
-[Configure](configure.md) - configuring for your use case
+[Configure](configure/index.md) - configuring for your use case
 
 [Deploy](deployment/index.md) - development via Ansible playbooks
 

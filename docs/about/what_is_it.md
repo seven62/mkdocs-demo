@@ -49,4 +49,4 @@
 
 * [Kibana](https://www.elastic.co/products/kibana) provides data UI and visualization
 
-* [Docket](maintain/docket.md) allows for quick and targeted pivoting to PCAP
+* [Docket](../services/docket.md) allows for quick and targeted pivoting to PCAP

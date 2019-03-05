@@ -26,7 +26,7 @@ sudo systemctl stop fsf
 sudo systemctl restart fsf
 ```
 
-It can also be managed using the [rockctl](../operate/index.md) command.
+It can also be managed using the `rockctl` command.
 
 ## Directories
 
