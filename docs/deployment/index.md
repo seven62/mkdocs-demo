@@ -11,7 +11,7 @@ Once the deployment is completed with the components you chose, you'll be
 congratulated with a success banner.  
 
 <p align="center">
-<img src="../../img/install_banner.png">
+<img src="../img/install_banner.png">
 </p>
 <!-- <p align="center">
 <a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="\_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
@@ -45,5 +45,6 @@ To get into Kibana:
 2. point your browser to Kibana:   
     * `https://[ip address]`
     * `https://[hostname]` (if you have DNS set up)
-1. enter user and password
-1. profit!  
+3. enter user and password
+4. profit!  
+
