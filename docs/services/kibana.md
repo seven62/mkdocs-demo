@@ -1,8 +1,7 @@
 # Kibana
 
 ## Overview
-Kibana is the web interface used to interact with data inside [Elasticseach](elasticsearch.md).
-
+Kibana is the web interface used to display data inside [Elasticseach](elasticsearch.md).
 
 ## Basic Usage
 
@@ -13,7 +12,6 @@ running the deploy script a random passphrase is generated in the style of [XKCD
 
 These credentials are stored in "KIBANA_CREDS.README" file located in the home directory of the user
 created at install e.g. `/home/admin/KIBANA_CREDS.README`.
-
 
 ## Management
 
@@ -28,7 +26,6 @@ sudo systemctl status kibana
 sudo systemctl stop kibana
 sudo systemctl restart kibana
 ```
-
 
 ## Directories
 
