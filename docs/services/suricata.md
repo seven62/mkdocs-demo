@@ -16,8 +16,10 @@ The Suricata service is configured and enabled on startup.
 ### Updating Rules
 
 The newest versions of Suricata come with the `suricata-update` command to
-manange and update rulesets. The official documentation is found
+manage and update rulesets. The official documentation is found
 [here](https://suricata.readthedocs.io/en/suricata-4.1.2/rule-management/suricata-update.html).
+
+For more detailed information on the `suricata-update` command, you can also check out a detailed blog post over at [Perched](https://blog.perched.io/managing-suricata-on-rocknsm-2-3-6a9f8fe4d5f0).
 
 ### Service
 
