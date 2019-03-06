@@ -3,7 +3,7 @@
 Docket is a web UI that makes it easy for analysts to filter mountains of PCAP down to specific chunks in order to find the [baddies](https://v637g.app.goo.gl/qkGzskQTs5goPdBH6).
 
 <p align="center">
-https://<sensorip>/app/docket/
+https://[sensorip]/app/docket/
 </p>
 <br>
 
