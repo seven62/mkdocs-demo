@@ -3,6 +3,7 @@
 ## Overview
 Kibana is the web interface used to display data inside [Elasticseach](elasticsearch.md).
 
+
 ## Basic Usage
 
 Open a web browser and visit the following url: `https://<sensorip>/app/kibana`.
