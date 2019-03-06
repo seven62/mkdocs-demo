@@ -1,13 +1,26 @@
 # Installation Guide
 
+Let's just hold on for [one hot minute](https://youtu.be/UIyMhzU655o) before
+installing, just in case you like to skip around.
+
+It's dangerous to deploy sensors alone... take these _[minumum requirements](./requirements.md)_:  
+
+- 8GB RAM
+- 4 Physical Cores
+- 256GB disk
+- 2 NICs
+    - active connection on mgmt port
+
 
 ## Network Connection
-Before starting, let's cover a critical setup point:
+This is a critical setup point:  
 
-> Before initial boot, connect the network interface that you intend to use to remotely manage ROCK.
+> Before booting to the ISO, connect the network interface that you intend to
+use to remotely manage ROCK.
 
-
-During install, ROCK will see the network interface with an ip address and default gateway and designate it as the _**management**_ port. So with that info, plug into that interface and boot to your USB.
+Why? During install, ROCK will see the network interface with an ip address and
+default gateway and designate it as the _**management**_ port. So plug into that
+interface and boot to your USB drive.  
 
 
 ## Install Types
@@ -27,11 +40,12 @@ The "Automated" option is intended to serve as a _**starting point**_ that allow
 
 Bottom line: think of this as a product quickstart mode, perfect for installing on a VM or other temporary hardware. It is _**not**_ for production sensor deployment.
 
-> For the rest of this install guide we'll work through the more detail oriented "Custom Install of ROCK" option.
+> **For the rest of this install guide we'll work through the more detail oriented "Custom Install of ROCK" option.**
 
 
 ### Custom
 The "Custom" allows for more customization of a ROCK installation. This is especially helpful when you're working with multiple disks or even a large amount of storage on a single disk. The Custom option is recommended for production environments in order to get more granular in choosing how disk space is allocated.
+
 
 #### Disk Allocation
 Configuring disk and storage is a deep topic on it's own, but let's talke about a few examples to get started:  

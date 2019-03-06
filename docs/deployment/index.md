@@ -1,14 +1,43 @@
 # Deployment
 
-## Deploy
-Once `/etc/rocknsm/config.yml` has been tuned to suit your environment, it's
-finally time to **deploy this thing**.  This is done by running the deployment
-script, which is in the install user's path (`/usr/sbin/`).
+Once your configuration files have been tuned to suit your environment, it's
+time to cover the 2 scripts available to the user. These scripts are located in
+your `$PATH` and are important tools to understand:  
 
-To kick off the deployment script run:  `sudo deploy_rock.sh`  
+1. `generate_defaults.sh`
+1. `deploy_rock.sh`
+
+
+## Generate Defaults
+
+This script writes your configuration files (`config.yml` and `hosts.ini`)
+to their factory default state. This script is **already run** at install so
+it's not necessary to run right now.   
+
+> So why do I care about this generate_defaults.sh thing?
+
+Great question! This very helpful when you begin editing your configs and get
+into a mess.  It's a solution for when you need to restore the base configuration
+files back to their factory defaults.  
+
+Simply execute the script to get you out of config file purgatory:  
+```
+sudo generate_defaults.sh
+```
+
+It's important to note that this resets _configuration files_ and **not**
+any data.
+
+## Deploy
+
+Now it's finally time to **deploy this thing**. This is done by running the deployment
+script, which is kicked off by running:
+```
+sudo deploy_rock.sh
+```
 
 Once the deployment is completed with the components you chose, you'll be
-congratulated with a success banner.  
+congratulated with a success banner. Congratulations!  
 
 <p align="center">
 <img src="../img/install_banner.png">
@@ -18,27 +47,13 @@ congratulated with a success banner.
 </p>   -->
 
 
-## Generate Defaults
-> What do I do when I've completely messed things up and need to start over?
-
-Great question.  There's a simple solution for when the base config file needs
-to be reset back to default settings. There's a generate_defaults script also
-located in your `$PATH`. Simply execute this to regenerate a fresh default
-config file ( `/etc/rocknsm/config.yml` ) for you and get you out of jail:  
-
-`sudo generate_defaults.sh`  
-
-This effectively reverts things to factory defaults, and you can then revisit
-your config file.  
-
-
 ## Initial Kibana Access
 We strive to do the little things right, so rather than having Kibana available
 to everyone in the free world, it's sitting behind a reverse proxy and secured
 by a [passphrase](https://xkcd.com/936/).  
 
 The credentials are written to the home directory of the user that runs the
-`deploy_rock.sh` playbook. Most of the time, this will be the administrative user
+deploy script. Most of the time, this will be the administrative user
 created at installation e.g. `/home/admin`.
 
 To get into Kibana:  

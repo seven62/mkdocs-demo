@@ -11,16 +11,21 @@ Before that, let's cover what you're going to need before starting.
 
 ## Sensor Hardware
 
-The analysis of live network data is a resource intensive task.  The bottom line
-is this: **if you throw hardware at ROCK it will use it, and use it well**. The
-higher the IOPS the better.  Here's a starting point to get you moving:  
+The analysis of live network data is a resource intensive task, so the higher
+the IOPS the better.  Here's the bottom line:
+
+> **If you throw hardware at ROCK it will use it, and use it well.**
+
+
+### Minimum Specs
+<br>
 
 |   RESOURCE  |     RECOMMENDATION |
 | ----------- | ------------------ |
-| CPU         | 4 or more physical cores |
-| Memory      | 16GB ( 8GB to start, more the better ) |
-| Storage     | 256GB, with 200+ of that dedicated to `/data`, SSD preferred |
-| Network     | 2 gigabit interfaces, one for management and one for collection |
+| CPU         | **4+** physical cores |
+| Memory      | **8GB** RAM minimum, the more the better ) |
+| Storage     | **256GB**, with 200+ of that dedicated to `/data`, SSD preferred |
+| Network     | **2 gigabit interfaces**, one for management and one for collection |
 
 
 ## Install Media
