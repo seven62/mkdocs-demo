@@ -460,8 +460,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#docket-httpslocalhost8443" title="Docket - https://localhost:8443" class="md-nav__link">
-    Docket - https://localhost:8443
+  <a href="#docket-httpslocalhostappdocket" title="Docket - https://localhost/app/docket/" class="md-nav__link">
+    Docket - https://localhost/app/docket/
   </a>
   
 </li>
@@ -475,6 +475,33 @@
   <a href="#functions-checks" title="Functions Checks" class="md-nav__link">
     Functions Checks
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-health" title="Cluster Health" class="md-nav__link">
+    Cluster Health
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-check" title="Document Check" class="md-nav__link">
+    Document Check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-with-pcap" title="Testing with PCAP" class="md-nav__link">
+    Testing with PCAP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -748,6 +775,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../references/support.md" title="Commercial Support" class="md-nav__link">
+      Commercial Support
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -789,8 +828,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#docket-httpslocalhost8443" title="Docket - https://localhost:8443" class="md-nav__link">
-    Docket - https://localhost:8443
+  <a href="#docket-httpslocalhostappdocket" title="Docket - https://localhost/app/docket/" class="md-nav__link">
+    Docket - https://localhost/app/docket/
   </a>
   
 </li>
@@ -804,6 +843,33 @@
   <a href="#functions-checks" title="Functions Checks" class="md-nav__link">
     Functions Checks
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-health" title="Cluster Health" class="md-nav__link">
+    Cluster Health
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#document-check" title="Document Check" class="md-nav__link">
+    Document Check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-with-pcap" title="Testing with PCAP" class="md-nav__link">
+    Testing with PCAP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -839,57 +905,77 @@
 <p>The generated credentials are in the home directory of the user created at install:<br />
 <br>
 <code>~/KIBANA_CREDS.README</code>  </p>
-<h3 id="docket-httpslocalhost8443">Docket - <code>https://localhost:8443</code><a class="headerlink" href="#docket-httpslocalhost8443" title="Permanent link">&para;</a></h3>
-<p>Docket - web interface for pulling PCAP from the sensor (must be enabled in config)  </p>
-<p><br></p>
+<h3 id="docket-httpslocalhostappdocket">Docket - <code>https://localhost/app/docket/</code><a class="headerlink" href="#docket-httpslocalhostappdocket" title="Permanent link">&para;</a></h3>
+<p>Docket - web interface for pulling PCAP from the sensor (must be enabled in config)<br />
+<br></p>
 <blockquote>
 <p>localhost <strong>or</strong> IP of the management interface of the box  </p>
 </blockquote>
 <h2 id="functions-checks">Functions Checks<a class="headerlink" href="#functions-checks" title="Permanent link">&para;</a></h2>
-<p>After the initial build, the ES cluster will be yellow because the marvel index
-will think it's missing a replica. Run this to fix this issue. This job will
-run from cron just after midnight every day:  </p>
-<div class="codehilite"><pre><span></span>`/usr/local/bin/es_cleanup.sh 2&amp;gt;&amp;amp;1 &amp;gt; /dev/null`
-</pre></div>
-
-
+<h3 id="cluster-health">Cluster Health<a class="headerlink" href="#cluster-health" title="Permanent link">&para;</a></h3>
 <p>Check to see that the ES cluster says it's green:</p>
-<div class="codehilite"><pre><span></span>`curl -s localhost:9200/_cluster/health | jq &#39;.&#39;`
+<div class="codehilite"><pre><span></span>curl -s localhost:9200/_cluster/health?pretty  
 </pre></div>
 
 
+<h3 id="document-check">Document Check<a class="headerlink" href="#document-check" title="Permanent link">&para;</a></h3>
 <p>See how many documents are in the indexes. The count should be non-zero:</p>
-<div class="codehilite"><pre><span></span>`curl -s localhost:9200/_all/_count | jq &#39;.&#39;`
+<div class="codehilite"><pre><span></span>curl -s localhost:9200/_all/_count?pretty  
 </pre></div>
 
 
-<p>You can fire some traffic across the sensor at this point to see if it's collecting. NOTE: This requires that you upload your own test PCAP to the box.</p>
-<div class="codehilite"><pre><span></span>`sudo tcpreplay -i [your monitor interface] /path/to/a/test.pcap`
+<h3 id="testing-with-pcap">Testing with PCAP<a class="headerlink" href="#testing-with-pcap" title="Permanent link">&para;</a></h3>
+<p>You can fire some traffic across the sensor at this point to see if it's
+collecting. This requires that you upload your own test PCAP to the box. PCAP is
+typically huge, so if you don't have any just lying around, here's a quick test:  </p>
+<ul>
+<li>Download a small test file from the folks who brought us <code>tcpreplay</code>
+<a href="http://tcpreplay.appneta.com/wiki/captures.html">here</a>:  </li>
+</ul>
+<div class="codehilite"><pre><span></span>curl -LO https://s3.amazonaws.com/tcpreplay-pcap-files/smallFlows.pcap
 </pre></div>
 
 
-<p>After replaying some traffic, or just waiting a bit, the count should be going
-up. You should have plain text bro logs showing up in /data/bro/logs/current/:  </p>
-<div class="codehilite"><pre><span></span>`ls -ltr /data/bro/logs/current/`
+<ul>
+<li>Replay the PCAP file across your <em>monitor interface</em>:  </li>
+</ul>
+<div class="codehilite"><pre><span></span>sudo tcpreplay -i [your-monitor-interface] /path/to/smallflow.pcap  
+</pre></div>
+
+
+<ul>
+<li>After a few moments, the document count should go up. This can again be
+validated with:</li>
+</ul>
+<div class="codehilite"><pre><span></span>curl -s localhost:9200/_all/_count?pretty
+</pre></div>
+
+
+<ul>
+<li>You should have plain text bro logs showing up in /data/bro/logs/current/:  </li>
+</ul>
+<div class="codehilite"><pre><span></span>ls -ltr /data/bro/logs/current/  
 </pre></div>
 
 
 <h2 id="rockctl">Rockctl<a class="headerlink" href="#rockctl" title="Permanent link">&para;</a></h2>
-<p>These functions are accomplished with:  </p>
-<p><code>sudo rock_status</code> - get the status of ROCK services</p>
+<p>The basic service management functions are accomplished with:  </p>
+<p><code>sudo rockctl status</code> - get the status of ROCK services</p>
 <!-- <p align="center">
 <a href="https://asciinema.org/a/z9qgFqFTr9HoeSMpX2gKWXqng" target="\_blank"><img src="https://asciinema.org/a/z9qgFqFTr9HoeSMpX2gKWXqng.png" width="469"/></a>
 </p> -->
 
-<p><code>sudo rock_start</code> - start ROCK services</p>
+<p><code>sudo rockctl start</code> - start ROCK services</p>
 <!-- <p align="center">
 <a href="https://asciinema.org/a/QAxK2iiWEw2bFRKUc5JFri3n9" target="\_blank"><img src="https://asciinema.org/a/QAxK2iiWEw2bFRKUc5JFri3n9.png" width="469"/></a>
 </p> -->
 
-<p><code>sudo rock_stop</code> - stop ROCK services</p>
+<p><code>sudo rockctl stop</code> - stop ROCK services</p>
 <!-- <p align="center">
 <a href="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM" target="\_blank"><img src="https://asciinema.org/a/ME56ahRQrj3qmrynGzCc47GyM.png" width="469"/></a>
 </p> -->
+
+<p><code>sudo rockctl reset-failed</code> - clear the failed states of services</p>
                 
                   
                 

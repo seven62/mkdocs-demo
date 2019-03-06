@@ -365,6 +365,19 @@
     Sensor Hardware
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-specs" title="Minimum Specs" class="md-nav__link">
+    Minimum Specs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -728,6 +741,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/support.md" title="Commercial Support" class="md-nav__link">
+      Commercial Support
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -757,6 +782,19 @@
   <a href="#sensor-hardware" title="Sensor Hardware" class="md-nav__link">
     Sensor Hardware
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-specs" title="Minimum Specs" class="md-nav__link">
+    Minimum Specs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -796,15 +834,19 @@
                 <h1 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h1>
 <p>Installation of ROCK can be broken down into three main steps:  </p>
 <ol>
-<li>install</li>
-<li>configure</li>
-<li>deploy</li>
+<li>Install</li>
+<li>Configure</li>
+<li>Deploy</li>
 </ol>
 <p>Before that, let's cover what you're going to need before starting.  </p>
 <h2 id="sensor-hardware">Sensor Hardware<a class="headerlink" href="#sensor-hardware" title="Permanent link">&para;</a></h2>
-<p>The analysis of live network data is a resource intensive task.  The bottom line
-is this: <strong>if you throw hardware at ROCK it will use it, and use it well</strong>. The
-higher the IOPS the better.  Here's a starting point to get you moving:  </p>
+<p>The analysis of live network data is a resource intensive task, so the higher
+the IOPS the better.  Here's the bottom line:</p>
+<blockquote>
+<p><strong>If you throw hardware at ROCK it will use it, and use it well.</strong></p>
+</blockquote>
+<h3 id="minimum-specs">Minimum Specs<a class="headerlink" href="#minimum-specs" title="Permanent link">&para;</a></h3>
+<p><br></p>
 <table>
 <thead>
 <tr>
@@ -815,19 +857,19 @@ higher the IOPS the better.  Here's a starting point to get you moving:  </p>
 <tbody>
 <tr>
 <td>CPU</td>
-<td>4 or more physical cores</td>
+<td><strong>4+</strong> physical cores</td>
 </tr>
 <tr>
 <td>Memory</td>
-<td>16GB ( 8GB to start, more the better )</td>
+<td><strong>8GB</strong> RAM minimum, the more the better )</td>
 </tr>
 <tr>
 <td>Storage</td>
-<td>256GB, with 200+ of that dedicated to <code>/data</code>, SSD preferred</td>
+<td><strong>256GB</strong>, with 200+ of that dedicated to <code>/data</code>, SSD preferred</td>
 </tr>
 <tr>
 <td>Network</td>
-<td>2 gigabit interfaces, one for management and one for collection</td>
+<td><strong>2 gigabit interfaces</strong>, one for management and one for collection</td>
 </tr>
 </tbody>
 </table>
@@ -840,8 +882,8 @@ higher the IOPS the better.  Here's a starting point to get you moving:  </p>
 <h2 id="network-connection">Network Connection<a class="headerlink" href="#network-connection" title="Permanent link">&para;</a></h2>
 <p>ROCK is first and foremost a <em><strong>passive</strong></em> network sensor and is designed with
 the assumption that there may not be a network connection available during
-install. There's some built in flexibility on how</p>
-<p>This will be clarified more in then next sections.<br />
+install. There's some built-in flexibility with deploying ROCK, and this will
+be clarified more in then next sections.<br />
 <br>
 <br></p>
 <blockquote>

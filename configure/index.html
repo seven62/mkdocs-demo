@@ -400,6 +400,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hosts-file" title="Hosts File" class="md-nav__link">
+    Hosts File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#config-file" title="Config File" class="md-nav__link">
     Config File
   </a>
@@ -425,6 +432,26 @@
   <a href="#installation-source" title="Installation Source" class="md-nav__link">
     Installation Source
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#online" title="Online" class="md-nav__link">
+    Online
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline" title="Offline" class="md-nav__link">
+    Offline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -753,6 +780,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../references/support.md" title="Commercial Support" class="md-nav__link">
+      Commercial Support
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -777,6 +816,13 @@
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hosts-file" title="Hosts File" class="md-nav__link">
+    Hosts File
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#config-file" title="Config File" class="md-nav__link">
@@ -804,6 +850,26 @@
   <a href="#installation-source" title="Installation Source" class="md-nav__link">
     Installation Source
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#online" title="Online" class="md-nav__link">
+    Online
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#offline" title="Offline" class="md-nav__link">
+    Offline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -846,11 +912,50 @@
                 
                 
                 <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
-<p>After installation your sensor configuration will need to be customized.  This can be done by local login, or remotely via ssh.</p>
+<p>After initial installation, your newly minted sensor will need to be configured
+for your environment.  This can be done by logging in locally, or remotely via <code>ssh</code>.</p>
+<blockquote>
+<p>ROCK has been designed to require as little configuration as possible out of the
+box. This document covers much of gear turning available to advanced users, but
+please know up front that you can simply <strong><a href="../deployment/">run the deploy script</a></strong>
+and get a working sensor.  </p>
+</blockquote>
+<p>With that said, let's get into the 2 main configuration files found in <code>/etc/rocknsm/</code>.  </p>
+<h2 id="hosts-file">Hosts File<a class="headerlink" href="#hosts-file" title="Permanent link">&para;</a></h2>
+<p>The first file you may want to edit is <code>/etc/rocknsm/hosts.ini</code>. This
+file is an <a href="https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html">Ansible inventory</a> file that defines the target machines when
+running a playbook.  </p>
+<p>If you edit this file in a simple standalone sensor, you're essentially changing
+the hostname of your sensor.  </p>
+<!-- This is also where you break out server roles for more complex multi-node
+deployments. If that fits your needs, see the multi-node clustering guide [here](#). -->
+
+<div class="codehilite"><pre><span></span><span class="k">[rock]</span>
+<span class="na">simplerockbuild.simplerock.lan ansible_host</span><span class="o">=</span><span class="s">127.0.0.1 ansible_connection=local</span>
+
+<span class="k">[web]</span>
+<span class="na">simplerockbuild.simplerock.lan ansible_host</span><span class="o">=</span><span class="s">127.0.0.1 ansible_connection=local</span>
+
+<span class="k">[sensors:children]</span>
+<span class="na">rock</span>
+
+<span class="k">[bro:children]</span>
+<span class="na">sensors</span>
+<span class="na">...</span>
+<span class="na">...</span>
+<span class="na">...</span>
+</pre></div>
+
+
+<p>As you can see in the above example, the default hostname is <code>simplerockbuild.simplerock.lan</code>.
+To customize this, simply replace <em>all</em> simplerock entries with your own.  </p>
 <h2 id="config-file">Config File<a class="headerlink" href="#config-file" title="Permanent link">&para;</a></h2>
-<p>The primary configuration file for ROCK is <a href="https://github.com/rocknsm/rock/blob/master/playbooks/templates/rock_config.yml.j2">/etc/rocknsm/config.yml</a>.  This file contains key variables like network interface setup, cpu cores assignment, and much more.  There are a lot of options to tune here, so take time to familiarize.  Let's break down this file into it's major sections:  </p>
+<p>The next file (<a href="https://github.com/rocknsm/rock/blob/master/playbooks/templates/rock_config.yml.j2">/etc/rocknsm/config.yml</a>) drives
+the Ansible playbook and contains key variables like network interface setup,
+cpu cores assignment, and much more.  There are a lot of options to tune here so
+take time to familiarize.  Let's break down this file into it's major sections:  </p>
 <h3 id="network-interface">Network Interface<a class="headerlink" href="#network-interface" title="Permanent link">&para;</a></h3>
-<p>As mentioned previously, ROCK takes the interface with an ip address / gateway and will use that as the <em>management</em> NIC.  Beginning at line 8, <code>config.yml</code> displays the remaining interfaces that will be used to <strong>MONITOR</strong> traffic.</p>
+<p>As mentioned previously, ROCK takes the interface with an ip address / gateway and will use that as the <em>management</em> NIC. <code>config.yml</code> displays the remaining interfaces that will be used to <strong>MONITOR</strong> traffic.</p>
 <p>Let's run through a basic example:  </p>
 <div class="codehilite"><pre><span></span>[admin@rock ~]$ ip a
 
@@ -867,7 +972,7 @@
 <p>The demo box above has 2 NICs:<br />
 1. <code>enp0s3</code> - is plugged in for install and deployment with an ip address from local dhcp. This will be used to <strong>manage</strong> the sensor<br />
 2. <code>enp0s4</code> - will be unused (not connected) during install and deployment and be listed as a <code>rock_monif</code> in the config file</p>
-<p>Lines 7 - 9 of <code>/etc/rocknsm/config.yml</code> show that the other interface (<code>enp0s3</code>) is listed as MONITOR interface.</p>
+<p>The config file shows the other interface (<code>enp0s3</code>) is listed as MONITOR interface.</p>
 <div class="codehilite"><pre><span></span># interfaces that should be configured for sensor applications
 rock_monifs:
     - enp0s3
@@ -876,61 +981,72 @@ rock_monifs:
 
 <h3 id="sensor-resource">Sensor Resource<a class="headerlink" href="#sensor-resource" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span># Set the hostname of the sensor:
-rock_hostname:
+rock_hostname: rocknsm_sensor_1
 
 # Set the Fully Qualified Domain Name:
-rock_fqdn:
+rock_fqdn: rocknsm_sensor_1.rocknsm.lan
 
 # Set the number of CPUs assigned to Bro:
-bro_cpu:
+bro_cpu: 2
 
 # Set the Elasticsearch cluster name:
-es_cluster_name:
+es_cluster_name: rocknsm
 
 # Set the Elasticsearch cluster node name:
-es_node_name:
+es_node_name: localhost
 
 # Set the value of Elasticsearch memory:
-es_mem:
+es_mem: 5
 </pre></div>
 
 
 <h3 id="installation-source">Installation Source<a class="headerlink" href="#installation-source" title="Permanent link">&para;</a></h3>
-<p>We've taken into consideration that your sensor won't always have internet access.  The ISO's default value is set to offline:  </p>
-<div class="codehilite"><pre><span></span>53  # The primary installation variable defines the ROCK installation method:
-54  # ONLINE:   used if the system may reach out to the internet
-55  # OFFLINE:  used if the system may *NOT* reach out to the internet
-56  # The default value &quot;False&quot; will deploy using OFFLINE (local) repos.
-57  # A value of &quot;True&quot; will perform an install using ONLINE mirrors.
-58
-59  rock_online_install: True
+<p>We've taken into consideration that your sensor won't always have internet
+access.  Currently the default value is set to <code>rock_online_install: True</code>:  </p>
+<div class="codehilite"><pre><span></span>  # The primary installation variable defines the ROCK installation method:
+  # ONLINE:   used if the system may reach out to the internet
+  # OFFLINE:  used if the system may *NOT* reach out to the internet
+  # The default value &quot;False&quot; will deploy using OFFLINE (local) repos.
+  # A value of &quot;True&quot; will perform an install using ONLINE mirrors.
+
+  rock_online_install: True
 </pre></div>
 
 
-<p>If your sensor has access to online repos just set <code>rock_online_install: True</code>, Ansible will configure your system for the yum repositories listed and pull packages and git repos directly from the URLs shown. You can easily point this to local mirrors if needed.  </p>
-<p>If this value is set to <code>False</code>, Ansible will look at the cached files in <code>/srv/rocknsm</code>.</p>
+<h4 id="online">Online<a class="headerlink" href="#online" title="Permanent link">&para;</a></h4>
+<p>Does your sensor has access to <a href="https://imgs.xkcd.com/comics/the_cloud.png">upstream</a>
+online repositories? If so, then make sure that this value is set to
+<code>rock_online_install: True</code>.  </p>
+<h4 id="offline">Offline<a class="headerlink" href="#offline" title="Permanent link">&para;</a></h4>
+<p>If you are in an offline environment, then set it to <code>rock_online_install: False</code>.
+Ansible will deploy using the locally cached files found in <code>/srv/rocknsm</code>.</p>
+<p><br></p>
+<blockquote>
+<p>Note: In our next release the default behavior will be changed to an offline
+install (reference <a href="https://github.com/rocknsm/rock/issues/376">Issue #376</a>)</p>
+</blockquote>
 <h3 id="data-retention">Data Retention<a class="headerlink" href="#data-retention" title="Permanent link">&para;</a></h3>
 <p>This section controls how long NSM data stay on the sensor:  </p>
 <div class="codehilite"><pre><span></span># Set the interval in which Elasticsearch indexes are closed:
-elastic_close_interval:
+elastic_close_interval: 15
 
 # Set the interval in which Elasticsearch indexes are deleted:
-elastic_delete_interval:
+elastic_delete_interval: 60
 
 # Set value for Kafka retention (in hours):
-kafka_retention:
+kafka_retention: 168
 
 # Set value for Bro log retention (in days):
-bro_log_retention:
+bro_log_retention: 0
 
 # Set value for Bro statistics log retention (in days):
-bro_stats_retention:
+bro_stats_retention: 0
 
 # Set how often logrotate will roll Suricata log (in days):
-suricata_retention:
+suricata_retention: 3
 
 # Set value for FSF log retention (in days):
-fsf_retention:
+fsf_retention: 3
 </pre></div>
 
 
@@ -973,11 +1089,11 @@ enable_fsf: True
 
 
 <p>A good example for changing this section would involve <a href="../services/stenographer/">Stenographer</a>. Collecting raw PCAP is resource and <em><strong>storage intensive</strong></em>.  You're machine may not be able to handle that and if you just wanted to focus on network logs, then you would set both options in the config file to <strong>disable</strong> installing and enabling Stenographer:  </p>
-<div class="codehilite"><pre><span></span>67 with_stenographer: False
+<div class="codehilite"><pre><span></span>with_stenographer: False
   ...
   ...
   ...
-83 enable_stenographer: False
+enable_stenographer: False
 </pre></div>
                 
                   

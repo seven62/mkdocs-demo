@@ -809,6 +809,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/support.md" title="Commercial Support" class="md-nav__link">
+      Commercial Support
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -956,12 +968,27 @@
                 
                 
                 <h1 id="installation-guide">Installation Guide<a class="headerlink" href="#installation-guide" title="Permanent link">&para;</a></h1>
+<p>Let's just hold on for <a href="https://youtu.be/UIyMhzU655o">one hot minute</a> before
+installing, just in case you like to skip around.</p>
+<p>It's dangerous to deploy sensors alone... take these <em><a href="../requirements/">minumum requirements</a></em>:  </p>
+<ul>
+<li>8GB RAM</li>
+<li>4 Physical Cores</li>
+<li>256GB disk</li>
+<li>2 NICs<ul>
+<li>active connection on mgmt port</li>
+</ul>
+</li>
+</ul>
 <h2 id="network-connection">Network Connection<a class="headerlink" href="#network-connection" title="Permanent link">&para;</a></h2>
-<p>Before starting, let's cover a critical setup point:</p>
+<p>This is a critical setup point:  </p>
 <blockquote>
-<p>Before initial boot, connect the network interface that you intend to use to remotely manage ROCK.</p>
+<p>Before booting to the ISO, connect the network interface that you intend to
+use to remotely manage ROCK.</p>
 </blockquote>
-<p>During install, ROCK will see the network interface with an ip address and default gateway and designate it as the <em><strong>management</strong></em> port. So with that info, plug into that interface and boot to your USB.</p>
+<p>Why? During install, ROCK will see the network interface with an ip address and
+default gateway and designate it as the <em><strong>management</strong></em> port. So plug into that
+interface and boot to your USB drive.  </p>
 <h2 id="install-types">Install Types<a class="headerlink" href="#install-types" title="Permanent link">&para;</a></h2>
 <p>ROCK works with both legacy BIOS and UEFI booting.  Once booted from the USB, you are presented with 2 primary installation paths:  </p>
 <ol>
@@ -976,7 +1003,7 @@
 <p>The "Automated" option is intended to serve as a <em><strong>starting point</strong></em> that allows you to get into things.  It uses the Centos Anaconda installer to make some of the harder decisions for users by skipping over many options to get you up and running. It makes a best guess at how to use resources -- most notably how to manage available disks.  </p>
 <p>Bottom line: think of this as a product quickstart mode, perfect for installing on a VM or other temporary hardware. It is <em><strong>not</strong></em> for production sensor deployment.</p>
 <blockquote>
-<p>For the rest of this install guide we'll work through the more detail oriented "Custom Install of ROCK" option.</p>
+<p><strong>For the rest of this install guide we'll work through the more detail oriented "Custom Install of ROCK" option.</strong></p>
 </blockquote>
 <h3 id="custom">Custom<a class="headerlink" href="#custom" title="Permanent link">&para;</a></h3>
 <p>The "Custom" allows for more customization of a ROCK installation. This is especially helpful when you're working with multiple disks or even a large amount of storage on a single disk. The Custom option is recommended for production environments in order to get more granular in choosing how disk space is allocated.</p>

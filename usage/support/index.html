@@ -728,6 +728,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/support.md" title="Commercial Support" class="md-nav__link">
+      Commercial Support
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -803,25 +815,19 @@ assumptions will give you a working sensor, but may need some love for higher
 performance. If you cannot meet these assumptions, look at the indicated
 configuration variables in <code>/etc/rocknsm/config.yml</code> for workaround approaches
 (with impact on performance).  </p>
-<ul>
-<li>
-<p>Two Network Interfaces:</p>
-<ul>
-<li>
-<p>a management interface with a default route</p>
-</li>
-<li>
-<p>an interface without a default route (defined by <code>rock_monifs</code>)</p>
-</li>
-</ul>
-</li>
-</ul>
 <blockquote>
 <p>TIP: We assume that any interface that does not have a default route will be used for collection. Each sensor application will be configured accordingly.</p>
 </blockquote>
 <p><strong>WARNING</strong>: This so far has been the number one problem with a fresh install
 for beta testers!! Check your interface configuration!!</p>
 <ul>
+<li>
+<p>Two Network Interfaces:</p>
+<ul>
+<li>a management interface with a default route</li>
+<li>an interface without a default route (defined by <code>rock_monifs</code>)</li>
+</ul>
+</li>
 <li>
 <p>You have mounted your largest storage volume(s) under <code>/data/</code>
 (defined by <code>rock_data_dir</code>)</p>
