@@ -66,10 +66,11 @@ For the terminal, we'll once again use `dd`, but with a few differences from the
 
 ### Windows
 
-<!-- #### Using a GUI -->
-
-When applying ISO on a Windows box our experience is entirely in graphical applications.  Here's a list of what works well:
+When applying ISO on a Windows box our experience is with graphical applications entirely.  Here's a list of what works well:
 
 - [Etcher](http://etcher.io) - our go-to standard
 - [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/)
 - [SD Card Formatter](https://www.sdcard.org/downloads/formatter_4/)
+- [Rufus](https://rufus.ie/)
+    - we [identified an issue](https://twitter.com/rocknsm/status/1100517122021748737) with Rufus
+when imaging ROCK v2.3 -- 2/26/19
