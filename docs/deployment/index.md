@@ -11,7 +11,7 @@ Once the deployment is completed with the components you chose, you'll be
 congratulated with a success banner.  
 
 <p align="center">
-<img src="../../img/install_banner.png">
+<img src="../img/install_banner.png">
 </p>
 <!-- <p align="center">
 <a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="\_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
@@ -35,9 +35,11 @@ your config file.
 ## Initial Kibana Access
 We strive to do the little things right, so rather than having Kibana available
 to everyone in the free world, it's sitting behind a reverse proxy and secured
-by a [passphrase](https://xkcd.com/936/).  The credentials are generated and
-then stored in the home directory of the user you created during the initial
-installation e.g. `/home/admin`.
+by a [passphrase](https://xkcd.com/936/).  
+
+The credentials are written to the home directory of the user that runs the
+`deploy_rock.sh` playbook. Most of the time, this will be the administrative user
+created at installation e.g. `/home/admin`.
 
 To get into Kibana:  
 
