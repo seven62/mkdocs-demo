@@ -18,7 +18,7 @@ Once the deployment is completed with the components you chose, you'll be
 congratulated with a success banner.  
 
 <p align="center">
-<img src="../../img/install_banner.png">
+<img src="../img/install_banner.png">
 </p>
 <!-- <p align="center">
 <a href="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl" target="\_blank"><img src="https://asciinema.org/a/2rS2u1fJzhaNVtkuKWgqd5BQl.png" width="469"/></a>
