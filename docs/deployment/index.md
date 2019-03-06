@@ -5,13 +5,6 @@ Once `/etc/rocknsm/config.yml` has been tuned to suit your environment, it's
 finally time to **deploy this thing**.  This is done by running the deployment
 script, which is in the install user's path (`/usr/sbin/`).
 
-<!-- ```
-/usr/sbin/
-├── ...
-├── deploy_rock.sh.sh
-├── ...
-``` -->
-
 To kick off the deployment script run:  `sudo deploy_rock.sh`  
 
 Once the deployment is completed with the components you chose, you'll be
@@ -48,7 +41,9 @@ installation e.g. `/home/admin`.
 
 To get into Kibana:  
 
-1. `cat` and copy the contents of `~/KIBANA_CREDS.README`
-1. browse to https://<MANAGEMENT-IP>
-1. enter this user / password combo
-1. profit!
+1. copy the passphrase in `~/KIBANA_CREDS.README`  
+2. point your browser to Kibana:   
+    * `https://[ip address]`
+    * `https://[hostname]` (if you have DNS set up)
+1. enter user and password
+1. profit!  
