@@ -1,7 +1,7 @@
 # Kibana
 
 ## Overview
-Kibana is the web interface used to interact with data inside [Elasticseach](elasticsearch.md).
+Kibana is the web interface used to display data inside [Elasticseach](elasticsearch.md).
 
 
 ## Basic Usage
