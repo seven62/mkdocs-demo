@@ -41,6 +41,7 @@ If you don't want to apply the image in the terminal, there are plenty of great 
 - [SD Card Formatter](https://www.sdcard.org/downloads/formatter_4/) - works well
 - [YUMI](https://www.pendrivelinux.com/yumi-multiboot-usb-creator/) - create multibooting disk
 
+> **Note** while we do not want to dictate what tool you use, we've received reports when using Rufus, a popular Windows based tool, to make bootable media. We reported this on Feb 26 https://twitter.com/rocknsm/status/1100517122021748737. The above GUI tools have been proven to work.
 
 ### macOS
 
