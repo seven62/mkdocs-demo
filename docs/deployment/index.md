@@ -49,6 +49,6 @@ installation e.g. `/home/admin`.
 To get into Kibana:  
 
 1. `cat` and copy the contents of `~/KIBANA_CREDS.README`
-1. browse to https://<MANAGEMENT-IP>
+1. browse to `https://<sensor-management-IP>`
 1. enter this user / password combo
 1. profit!
