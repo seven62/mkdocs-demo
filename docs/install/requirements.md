@@ -2,9 +2,9 @@
 
 Installation of ROCK can be broken down into three main steps:  
 
-1. install
-1. configure
-1. deploy
+1. Install
+1. Configure
+1. Deploy
 
 Before that, let's cover what you're going to need before starting.  
 
@@ -34,10 +34,8 @@ higher the IOPS the better.  Here's a starting point to get you moving:
 
 ROCK is first and foremost a _**passive**_ network sensor and is designed with
 the assumption that there may not be a network connection available during
-install. There's some built in flexibility on how
-
-
-This will be clarified more in then next sections.  
+install. There's some built-in flexibility with deploying ROCK, and this will
+be clarified more in then next sections.  
 <br>
 <br>
 
