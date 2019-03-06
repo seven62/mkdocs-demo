@@ -6,7 +6,7 @@ solutions:
 
 * it's fast
 * manages disk space
-    * will fill it's disk to 90%
+    * will fill it's disk partition to 90%
     * then start to overwrite oldest data forward  
 
 ## Management
