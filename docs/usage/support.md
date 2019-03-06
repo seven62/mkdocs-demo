@@ -12,16 +12,14 @@ performance. If you cannot meet these assumptions, look at the indicated
 configuration variables in `/etc/rocknsm/config.yml` for workaround approaches
 (with impact on performance).  
 
-* Two Network Interfaces:
-
-    * a management interface with a default route
-
-    * an interface without a default route (defined by `rock_monifs`)
-
 > TIP: We assume that any interface that does not have a default route will be used for collection. Each sensor application will be configured accordingly.
 
 **WARNING**: This so far has been the number one problem with a fresh install
 for beta testers!! Check your interface configuration!!
+
+* Two Network Interfaces:
+    * a management interface with a default route
+    * an interface without a default route (defined by `rock_monifs`)
 
 * You have mounted your largest storage volume(s) under `/data/`
 (defined by `rock_data_dir`)
