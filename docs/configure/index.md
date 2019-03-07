@@ -84,24 +84,23 @@ rock_monifs:
 
 ```yml
 # Set the hostname of the sensor:
-rock_hostname:
+rock_hostname: rocknsm_sensor_1
 
 # Set the Fully Qualified Domain Name:
-rock_fqdn:
+rock_fqdn: rocknsm_sensor_1.rocknsm.lan
 
 # Set the number of CPUs assigned to Bro:
-bro_cpu:
+bro_cpu: 2
 
 # Set the Elasticsearch cluster name:
-es_cluster_name:
+es_cluster_name: rocknsm
 
 # Set the Elasticsearch cluster node name:
-es_node_name:
+es_node_name: localhost
 
 # Set the value of Elasticsearch memory:
-es_mem:
+es_mem: 5
 ```
-
 
 ### Installation Source
 We've taken into consideration that your sensor won't always have internet
@@ -131,32 +130,30 @@ Ansible will deploy using the locally cached files found in `/srv/rocknsm`.
 > Note: In our next release the default behavior will be changed to an offline
 install (reference [Issue #376](https://github.com/rocknsm/rock/issues/376))
 
-
 ### Data Retention
 This section controls how long NSM data stay on the sensor:  
 ```yml
 # Set the interval in which Elasticsearch indexes are closed:
-elastic_close_interval:
+elastic_close_interval: 15
 
 # Set the interval in which Elasticsearch indexes are deleted:
-elastic_delete_interval:
+elastic_delete_interval: 60
 
 # Set value for Kafka retention (in hours):
-kafka_retention:
+kafka_retention: 168
 
 # Set value for Bro log retention (in days):
-bro_log_retention:
+bro_log_retention: 0
 
 # Set value for Bro statistics log retention (in days):
-bro_stats_retention:
+bro_stats_retention: 0
 
 # Set how often logrotate will roll Suricata log (in days):
-suricata_retention:
+suricata_retention: 3
 
 # Set value for FSF log retention (in days):
-fsf_retention:
+fsf_retention: 3
 ```
-
 
 ### ROCK Component Options
 This is a critical section that provides boolean options to choose what components of ROCK are **_installed_** and **_enabled_** during deployment.  

@@ -26,8 +26,7 @@ permission changes caused by running the real broctl binary with sudo.  The only
 safe way otherwise to run `broctl` is to execute it as the `bro` user and `bro`
 group as such:  
 
-    `sudo -u bro -g bro /usr/bin/broctl`
-
+`sudo -u bro -g bro /usr/bin/broctl`
 
 ## Directories
 

@@ -62,5 +62,6 @@ To get into Kibana:
 2. point your browser to Kibana:   
     * `https://[ip address]`
     * `https://[hostname]` (if you have DNS set up)
-1. enter user and password
-1. profit!  
+3. enter user and password
+4. profit!  
+

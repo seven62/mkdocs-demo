@@ -21,6 +21,8 @@ manange and update rulesets. The official documentation is found
 
 Checkout a full writeup from one of RockNSM's authors about [managing Suricata](https://blog.perched.io/managing-suricata-on-rocknsm-2-3-6a9f8fe4d5f0).
 
+For more detailed information on the `suricata-update` command, you can also check out a detailed blog post over at [Perched](https://blog.perched.io/managing-suricata-on-rocknsm-2-3-6a9f8fe4d5f0).
+
 ### Service
 
 Suricata is deployed as a systemd unit, called **suricata**. Normal systemd
